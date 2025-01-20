@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@jsaad/teilen-sql": "jsr:@jsaad/teilen-sql@^0.0.1",
+    "@std/assert": "jsr:@std/assert@^1.0.10"
+  }
+}
