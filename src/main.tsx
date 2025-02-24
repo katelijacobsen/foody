@@ -1,18 +1,19 @@
+import './index.css'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.tsx'
 
-// import * as teilen_sql from "@jsaad/teilen-sql";
+import { createDb } from "@jakobsaadbye/teilen-sql"
+import { SqliteContext, Inspector } from "@jakobsaadbye/teilen-sql/react"
 
-// console.log(teilen_sql);
-
-// import {createDb} from "@teilen-sql/sqlitedb.ts";
-
-// const db = createDb("foody.db");
+const db = await createDb("foody.db");
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <SqliteContext.Provider value={db}>
+      <Inspector>
+        <App />
+      </Inspector>
+    </SqliteContext.Provider>
   </StrictMode>,
 )
